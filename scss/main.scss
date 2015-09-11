@@ -1,0 +1,247 @@
+// Mixins
+// Solid and Hollow buttons mixin by the @poopsplat
+@mixin btn($background, $color) {
+  border: 3px solid rgba(255,255,255,0);
+  outline: 0;
+  text-shadow: 1px 1px darkslategray;
+  color: $color;
+  background: $background;
+  &:hover, &:active {
+    color: $background;
+    text-shadow: none;
+    background: none;
+    border-color: $background;
+  }
+}
+// End Mixin
+
+//variables
+
+$font-stack: 'Roboto', serif;
+$action-color: #DEC849;
+
+// end variables
+
+
+html {
+    background: no-repeat center center fixed;
+    background-color: cadetblue;
+    color: white;
+}
+
+body {
+  font-weight: 300;
+  font-family: $font-stack;
+  font-size: 1.5em;
+  color: darkslategray;
+}
+
+
+.container{
+    display: block;
+    margin: 0 auto;
+    width: 90%;
+}
+
+#loading-image {
+    width: 50%;
+}
+
+#weather{
+    text-align: center;
+    
+    h2 {
+        font-size: 3em;
+        font-weight: 600;
+    }
+}
+
+// weather icons
+
+@font-face {
+    font-family: 'weather';
+    src: url('/font/artill_clean_icons.otf');
+    font-weight: normal;
+    font-style: normal;   
+}
+
+i {
+  font-family: weather;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1.0;
+}
+
+.icon-0:before { content: ":"; }
+.icon-1:before { content: "p"; }
+.icon-2:before { content: "S"; }
+.icon-3:before { content: "Q"; }
+.icon-4:before { content: "S"; }
+.icon-5:before { content: "W"; }
+.icon-6:before { content: "W"; }
+.icon-7:before { content: "W"; }
+.icon-8:before { content: "W"; }
+.icon-9:before { content: "I"; }
+.icon-10:before { content: "W"; }
+.icon-11:before { content: "I"; }
+.icon-12:before { content: "I"; }
+.icon-13:before { content: "I"; }
+.icon-14:before { content: "I"; }
+.icon-15:before { content: "W"; }
+.icon-16:before { content: "I"; }
+.icon-17:before { content: "W"; }
+.icon-18:before { content: "U"; }
+.icon-19:before { content: "Z"; }
+.icon-20:before { content: "Z"; }
+.icon-21:before { content: "Z"; }
+.icon-22:before { content: "Z"; }
+.icon-23:before { content: "Z"; }
+.icon-24:before { content: "E"; }
+.icon-25:before { content: "E"; }
+.icon-26:before { content: "3"; }
+.icon-27:before { content: "a"; }
+.icon-28:before { content: "A"; }
+.icon-29:before { content: "a"; }
+.icon-30:before { content: "A"; }
+.icon-31:before { content: "6"; }
+.icon-32:before { content: "1"; }
+.icon-33:before { content: "6"; }
+.icon-34:before { content: "1"; }
+.icon-35:before { content: "W"; }
+.icon-36:before { content: "1"; }
+.icon-37:before { content: "S"; }
+.icon-38:before { content: "S"; }
+.icon-39:before { content: "S"; }
+.icon-40:before { content: "M"; }
+.icon-41:before { content: "W"; }
+.icon-42:before { content: "I"; }
+.icon-43:before { content: "W"; }
+.icon-44:before { content: "a"; }
+.icon-45:before { content: "S"; }
+.icon-46:before { content: "U"; }
+.icon-47:before { content: "S"; }
+
+
+// weather details 
+
+.weather-heading {
+    //position: sticky;
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+    img {
+        width: 250px;
+    }
+    
+}
+
+h2 {
+  //float: right;
+}
+
+ul {
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+li {
+    list-style: none;
+    padding: 2em;
+    margin: 1.5em;
+    background-color: rgba(255,255,255,0.5);
+}
+
+// buttons
+
+.btn {
+  cursor: pointer;
+  padding: 1em;
+  margin: 1em;
+  text-transform: uppercase;
+  line-height: 1em;
+  display: inline-block;
+  letter-spacing: 0.3em;
+  transition: border-color 0.2s ease-in-out, background 0.2s ease-in-out, color 0.2s ease-in-out;
+  &.-yellow {
+    @include btn($action-color, #fff);
+  }
+}
+
+a {
+    text-decoration: none;
+    color: $action-color;
+}
+
+// footer, obviously
+
+footer {
+    display: block;
+    text-align: right;
+    padding-right: 2em;
+    color: white;
+  }
+
+
+//loading image
+
+.loader:before,
+.loader:after,
+.loader {
+  border-radius: 50%;
+  width: 2.5em;
+  height: 2.5em;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation: load7 1.8s infinite ease-in-out;
+  animation: load7 1.8s infinite ease-in-out;
+}
+.loader {
+  font-size: 10px;
+  margin: 80px auto;
+  position: relative;
+  text-indent: -9999em;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+.loader:before {
+  left: -3.5em;
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+.loader:after {
+  left: 3.5em;
+}
+.loader:before,
+.loader:after {
+  content: '';
+  position: absolute;
+  top: 0;
+}
+@-webkit-keyframes load7 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 2.5em 0 -1.3em #ffffff;
+  }
+  40% {
+    box-shadow: 0 2.5em 0 0 #ffffff;
+  }
+}
+@keyframes load7 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 2.5em 0 -1.3em #ffffff;
+  }
+  40% {
+    box-shadow: 0 2.5em 0 0 #ffffff;
+  }
+}
+

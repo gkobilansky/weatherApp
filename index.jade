@@ -1,0 +1,22 @@
+doctype html
+html(lang="en")
+  head
+    title= weatherApp
+    link( href='/scss/main.css', rel='stylesheet')
+    link( href='/scss/normalize.css', rel='stylesheet')
+    link( href='https://fonts.googleapis.com/css?family=Roboto:400,100,600', rel='stylesheet', type='text/css')
+body
+    .container
+        h1 What's the weather like?
+        .container
+             //.wear Some text describing what to wear for later 
+            #weather
+        a(id='tweet', class='btn -yellow', title=" | Weather App by @gkobilansky") Tweet!
+        button.btn.-yellow#units(data-units='f') Metric?
+    footer
+          p 
+            a(href="http://lancekey.com") Lancekey
+            |  - 2015. All Movie Rights Reserved
+    script(src="bower_components/jquery/dist/jquery.min.js")
+    script(src="bower_components/jquery-simpleweather/jquery.simpleWeather.min.js")
+    script(src='js/min/weather-min.js')
